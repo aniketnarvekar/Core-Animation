@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         opacityAnimation.fromValue = from
         opacityAnimation.toValue = to
         opacityAnimation.duration = duration
+        opacityAnimation.repeatCount = Float.infinity
         return opacityAnimation
     }
 
