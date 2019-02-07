@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var animatableView: UIView = {
-        let view = UIView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let view = UIView(frame: CGRect(x: 75, y: 75, width: 100, height: 100))
         view.backgroundColor = .red
         return view
     }()
@@ -25,8 +25,6 @@ class ViewController: UIViewController {
         let duration = 3.0
         let opacityAnimation = changeOpacity(from: from, to: to, with: duration, repleatCount: Float.infinity, autoreverses: true)
         self.animatableView.layer.add(opacityAnimation, forKey: "opacity")
-        self.animatableView.layer.opacity = 1.0
-        
     }
     
     /// Change and animate opacity of view
