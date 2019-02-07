@@ -23,18 +23,28 @@ class ViewController: UIViewController {
         let from = 0.0
         let to = 1.0
         let duration = 3.0
-        let opacityAnimation = changeOpacity(from: from, to: to, with: duration)
+        let opacityAnimation = changeOpacity(from: from, to: to, with: duration, repleatCount: Float.infinity, autoreverses: true)
         self.animatableView.layer.add(opacityAnimation, forKey: "opacity")
         self.animatableView.layer.opacity = 1.0
         
     }
     
-    fileprivate func changeOpacity(from: Any?, to: Any?,with duration: CFTimeInterval ) -> CAAnimation {
+    /// Change and animate opacity of view
+    ///
+    /// - Parameters:
+    ///   - from: Defines the value the receiver uses to start interpolation.
+    ///   - to: Defines the value the receiver uses to end interpolation.
+    ///   - duration: Specifies the basic duration of the animation, in seconds.
+    ///   - repleatCount: Determines the number of times the animation will repeat.
+    ///   - autoreverses: Determines if the receiver plays in the reverse upon completion.
+    /// - Returns: The abstract superclass for animations in Core Animation.
+    fileprivate func changeOpacity(from: Any?, to: Any?,with duration: CFTimeInterval, repleatCount: Float = 0, autoreverses: Bool = false) -> CAAnimation {
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = from
         opacityAnimation.toValue = to
         opacityAnimation.duration = duration
-        opacityAnimation.repeatCount = Float.infinity
+        opacityAnimation.repeatCount = repleatCount
+        opacityAnimation.autoreverses = autoreverses
         return opacityAnimation
     }
 
